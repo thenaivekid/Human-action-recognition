@@ -114,18 +114,14 @@ def main():
                 
             except Exception as e:
                 print(f"Inference error: {e}")
-        
-        # # Draw rectangle and counter text
-        # cv2.rectangle(frame, (10, 10), (200, 70), (0, 255, 0), 2)
-        # cv2.putText(frame, f"Count: {counter}", (20, 50), 
-        #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-        
+
         # Display the predicted action
-        cv2.rectangle(frame, (10, 80), (400, 140), (0, 0, 255), 2)
-        cv2.putText(frame, f"Action: {current_action}", (20, 120), 
+        cv2.rectangle(frame, (10, 10), (400, 70), (0, 0, 255), 2)
+        cv2.putText(frame, f"Action: {current_action}", (20, 50), 
                     cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
         
         # Display the frame
+        frame = cv2.resize(frame, None, fx=1.5, fy=1.5)  # Increase the size by 1.5x
         cv2.imshow('Live Video Action Recognition', frame)
         
         # Exit on 'q' key press
